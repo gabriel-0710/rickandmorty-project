@@ -62,7 +62,7 @@ button {
   flex-wrap: wrap;
   gap: 24px;
   margin-top: 100px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   justify-content: center;
   padding-left: 200px;
   padding-right: 200px;
@@ -130,4 +130,21 @@ button {
 
   backdrop-filter: blur(10px);
 
+}
+
+.paginationSetting {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.paginationSetting button {
+  margin: 0px;
+  padding: 0px;
+  border: 0px;
+
+}
+
+.buttonFooter.selected {
+  color: #CBD736;
 }
