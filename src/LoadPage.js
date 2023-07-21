@@ -6,7 +6,6 @@ const LoadPage = () => {
   return (
     <div>
       <img src={loadingImage} alt="Loading" />
-      {/* You can put any other loading content here */}
     </div>
   );
 };

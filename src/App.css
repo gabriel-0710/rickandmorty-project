@@ -1,50 +1,45 @@
 .App {
   text-align: center;
-  width: 1440px;
-  height: 900px;
   background-image: url(components/Background.png);
-  background-size: contain;
+  background-size: 100% auto;
   background-repeat: no-repeat;
+  background-color: black;
 }
 
 .App-header {
-  
   padding-top: 38px;
-  min-height: 100vh;  
+  min-height: 100vh;
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .inside-App-Header {
   display: flex;
-  
+  justify-content: center;
 }
 
 input {
-  
   border: solid;
-  border: '2px';
+  border: "2px";
   border-color: white;
-  color: #9F9F9F;
+  color: #9f9f9f;
   background-color: transparent;
   margin-top: 60px;
-  margin-left: 572px;
+  padding-left: 12px;
   margin-right: 10px;
   height: 35px;
   width: 196px;
   border-radius: 8px;
   outline: none;
-  
 }
 
 input::placeholder {
-  padding-left: 12px;
+  
   height: 22px;
   width: 132px;
   font-size: 16px;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-weight: 700;
-
 }
 
 button {
@@ -53,13 +48,86 @@ button {
   height: 42px;
   width: 84px;
   color: white;
-  border: '3px';
+  border: "3px";
   border: solid;
   border-color: white;
   border-radius: 8px;
-  font-family: 'Nunito';
+  font-family: "Nunito";
   font-size: 16px;
   cursor: pointer;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 100px;
+  padding-bottom: 200px;
+  justify-content: center;
+  padding-left: 200px;
+  padding-right: 200px;
+}
+
+.card {
+  border-radius: 8px;
+  border: 2px;
+  border: solid;
+  width: 224px;
+  height: 224px;
+  cursor: pointer; 
+}
+
+.card:hover {
+  border-color: #CBD736;
+
+}
+
+.card:hover .cardImage {
+  background-blend-mode: normal;
+}
+
+.cardImage {
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 224px;
+  height: 169px;
+
+  background-color: #fff;
+  background-blend-mode: luminosity;
+}
+
+.cardText p {
+  padding: 0px;
+  margin: 0px;
+}
+
+.cardTextSpecies {
+  font-size: 12px;
+  font-weight: 400;
   
+}
+
+.cardTextName {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cardText {
+  background-color: rgba(0, 0, 0, 0.4);
   
+  padding-left: 13px;
+  padding-top: 7px;
+  padding-bottom: 10px;
+  margin: 0px;
+  color: #fff;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: left;
+
+  backdrop-filter: blur(10px);
+
 }
