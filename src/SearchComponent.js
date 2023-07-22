@@ -81,7 +81,7 @@ const SearchComponent = () => {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <br />
-          <button onClick={handleSearch}>Search</button>
+          <button className="buttonFirstPage" onClick={handleSearch}>Search</button>
         </div>
         {searchExecuted && searchResults.length > 0 && (
           <div>
@@ -106,6 +106,7 @@ const SearchComponent = () => {
             <div className="paginationSetting">
               <a
                 href="#"
+                className="pgLimiter"
                 onClick={(event) => {
                   event.preventDefault();
                   if (currentPage > 1) {
@@ -113,7 +114,7 @@ const SearchComponent = () => {
                   }
                 }}
               >
-                {"<"}
+                {"<"}     {/*  VOLTA PARA PÁGINA ANTERIOR */}
               </a>
               {[...Array(totalPage).keys()].map((number) => {
                 const className =
@@ -134,6 +135,7 @@ const SearchComponent = () => {
               })}
               <a
                 href="#"
+                className="pgLimiter"
                 onClick={(event) => {
                   event.preventDefault();
                   if (currentPage < totalPage) {
@@ -141,7 +143,7 @@ const SearchComponent = () => {
                   }
                 }}
               >
-                {">"}
+                {">"}    {/*  VAI PARA PÁGINA POSTERIOR */}
               </a>
             </div>
           </div>

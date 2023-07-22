@@ -41,7 +41,22 @@ input::placeholder {
   font-weight: 700;
 }
 
-button {
+/* button {
+  background-color: transparent;
+  margin-top: 60px;
+  height: 42px;
+  width: 84px;
+  color: white;
+  border: "3px";
+  border: solid;
+  border-color: white;
+  border-radius: 8px;
+  font-family: "Nunito";
+  font-size: 16px;
+  cursor: pointer;
+} */
+
+.buttonFirstPage {
   background-color: transparent;
   margin-top: 60px;
   height: 42px;
@@ -136,12 +151,30 @@ button {
 
 .paginationSetting button {
   margin: 0px;
-  padding: 0px;
+  /* padding: 0px; */
   border: 0px;
 }
 
 .buttonFooter.selected {
   color: #cbd736;
+  font-size: 20px;
+  background-color: transparent;
+  font-family: Nunito;
+  font-size: 20px;
+  cursor: pointer;
+  padding-left: 20px;
+  text-align: center;
+}
+
+.buttonFooter {
+  background-color: transparent;
+  font-size: 20px;
+  color: #909090;
+  font-family: Nunito;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 .paginationSetting a {
@@ -259,17 +292,26 @@ button {
 .modalButton {
   z-index: 999;
   margin-top: -720px;
+  cursor: pointer;
   margin-left: -329px;
+  background-color: transparent;
   width: 84px;
-height: 42px;
-flex-shrink: 0;
-border-radius: 8px;
-border: 2px solid #FFF;
-color: #FFF;
-text-align: center;
-font-family: Nunito;
-font-size: 16px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  height: 42px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+  font-family: Nunito;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.pgLimiter {
+  color: #909090;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 45px;
 }
