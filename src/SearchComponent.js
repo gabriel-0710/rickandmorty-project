@@ -23,6 +23,26 @@ const SearchComponent = () => {
   const [modalLocationName, setModalLocationName] = useState("");
   const [statusCharacter, setStatusCharacter] = useState("");
 
+  const calculatePageIndices = () => {
+    const maxPageDisplay = 6;
+    const halfMaxPageDisplay = Math.floor(maxPageDisplay / 2);
+
+    let startPage = currentPage - halfMaxPageDisplay;
+    let endPage = currentPage + halfMaxPageDisplay;
+
+    if (startPage <= 0) {
+      startPage = 1;
+      endPage = maxPageDisplay;
+    }
+
+    if (endPage > totalPage) {
+      endPage = totalPage;
+      startPage = totalPage - maxPageDisplay + 1;
+    }
+
+    return { startPage, endPage };
+  };
+
   const openModal = (result) => {
     setSelectedImageUrl(result.image_url);
     setModalName(result.name);
@@ -52,6 +72,7 @@ const SearchComponent = () => {
       );
       const data = await response.json();
       setSearchResults(data.results);
+      console.log(data.results)
       setTotalPage(data.total_pages);
       setCurrentPage(page || 1);
     } catch (error) {
@@ -88,7 +109,7 @@ const SearchComponent = () => {
             <div className="results">
               {searchResults.map((result) => (
                 <div
-                  className="card"
+                  className={`card ${result.status === "Dead" ? "Dead" : ""}`}
                   key={result.id}
                   onClick={() => openModal(result)}
                 >
@@ -104,7 +125,7 @@ const SearchComponent = () => {
               ))}
             </div>
             <div className="paginationSetting">
-              <a
+            <a
                 href="#"
                 className="pgLimiter"
                 onClick={(event) => {
@@ -114,24 +135,39 @@ const SearchComponent = () => {
                   }
                 }}
               >
-                {"<"}     {/*  VOLTA PARA PÁGINA ANTERIOR */}
+                {"<"} {/* VOLTA PARA PÁGINA ANTERIOR */}
               </a>
+              {/* Renderizar botões de página com reticências */}
               {[...Array(totalPage).keys()].map((number) => {
+                const { startPage, endPage } = calculatePageIndices();
                 const className =
                   number + 1 === currentPage
                     ? "buttonFooter selected"
                     : "buttonFooter";
-                return (
-                  <button
-                    className={className}
-                    key={number + "pagination"}
-                    onClick={(event) => {
-                      handleSearch(event, number + 1);
-                    }}
-                  >
-                    {number + 1}
-                  </button>
-                );
+                if (
+                  (number + 1 === startPage && startPage !== 1) ||
+                  (number + 1 === endPage && endPage !== totalPage) ||
+                  (number + 1 >= startPage && number + 1 <= endPage)
+                ) {
+                  return (
+                    <button
+                      className={className}
+                      key={number + "pagination"}
+                      onClick={(event) => {
+                        handleSearch(event, number + 1);
+                      }}
+                    >
+                      {number + 1}
+                    </button>
+                  );
+                } else if (
+                  number + 1 === startPage - 1 ||
+                  number + 1 === endPage + 1
+                ) {
+                  // Adicionar reticências antes e depois do intervalo exibido
+                  return <span key={number + "pagination"}>...</span>;
+                }
+                return null;
               })}
               <a
                 href="#"

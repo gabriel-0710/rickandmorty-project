@@ -41,20 +41,6 @@ input::placeholder {
   font-weight: 700;
 }
 
-/* button {
-  background-color: transparent;
-  margin-top: 60px;
-  height: 42px;
-  width: 84px;
-  color: white;
-  border: "3px";
-  border: solid;
-  border-color: white;
-  border-radius: 8px;
-  font-family: "Nunito";
-  font-size: 16px;
-  cursor: pointer;
-} */
 
 .buttonFirstPage {
   background-color: transparent;
@@ -83,20 +69,20 @@ input::placeholder {
 }
 
 .card {
-  border-radius: 8px;
-  border: 2px;
-  border: solid;
   width: 224px;
+  /* width: 224px; */
   height: 224px;
   cursor: pointer;
+  border: 2px solid #606060;
+  border-radius: 8px;
+
+  overflow: hidden;
 }
+
 
 .card:hover {
-  border-color: #cbd736;
-}
-
-.card:hover .cardImage {
-  background-blend-mode: normal;
+  border: 2px solid #CBD736;
+  box-shadow: 0px 6px 7px 0px #CBD73640;
 }
 
 .cardImage {
@@ -104,9 +90,11 @@ input::placeholder {
   background-size: cover;
   width: 224px;
   height: 169px;
-
   background-color: #fff;
-  background-blend-mode: luminosity;
+}
+
+.card.Dead .cardImage{
+  filter: grayscale(100%);
 }
 
 .cardText p {
@@ -314,4 +302,17 @@ input::placeholder {
   padding-left: 20px;
   padding-right: 20px;
   height: 45px;
+}
+
+.ReactModal__Overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
